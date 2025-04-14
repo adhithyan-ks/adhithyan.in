@@ -70,8 +70,7 @@
 
       .nav {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        justify-content: center;
         padding: 2rem 0;
       }
 
@@ -91,6 +90,7 @@
       .menu {
         display: flex;
         list-style: none;
+        justify-content: center;
       }
 
       .menu li {
@@ -182,14 +182,17 @@
         }
       }
       .glow-circle {
-        width: 200px;
-        height: 200px;
+        width: 50px;
+        height: 50px;
         position: fixed;
         align-self: center;
-        background: radial-gradient(circle, rgb(255, 87, 87), transparent 70%);
+        background: radial-gradient(circle, rgb(255, 87, 87), transparent 100%);
         border-radius: 50%;
         animation: pulse 1.5s infinite;
         margin: 20px 0;
+        box-shadow: 0 0 10px rgba(255, 87, 87, 0.5),
+          0 0 20px rgba(255, 87, 87, 0.5), 0 0 30px rgba(255, 87, 87, 0.5),
+          0 0 40px rgba(255, 87, 87, 0.5), 0 0 50px rgba(255, 87, 87, 0.5);
       }
 
       @keyframes pulse {
@@ -215,6 +218,7 @@
         <ul class="menu">
           <li><a href="#">Work</a></li>
           <li><a href="#">About</a></li>
+          <li class="glow-circle"><a href="/"></a></li>
           <li><a href="#">Funzies</a></li>
           <li><a href="#">Resume</a></li>
         </ul>
