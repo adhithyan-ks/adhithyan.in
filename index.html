@@ -110,6 +110,7 @@
         align-items: center;
         justify-content: center;
         padding: 4rem 0;
+        position: relative;
       }
 
       .main-logo {
@@ -124,6 +125,8 @@
         text-align: center;
         margin-bottom: 1.5rem;
         font-weight: normal;
+        position: relative;
+        z-index: 2;
       }
 
       .tagline {
@@ -132,6 +135,8 @@
         font-size: 1.5rem;
         line-height: 1.5;
         margin-bottom: 4rem;
+        position: relative;
+        z-index: 2;
       }
 
       .projects {
@@ -159,6 +164,48 @@
         background-color: #ddd;
       }
 
+      /* Using your exact glow-circle styles */
+      .glow-circle {
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        align-self: center;
+        background: radial-gradient(circle, rgb(255, 87, 87), white);
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+        z-index: 1;
+        box-shadow: 0 0 10px rgba(255, 87, 87, 0.5),
+          0 0 20px rgba(255, 87, 87, 0.5), 0 0 30px rgba(255, 87, 87, 0.5),
+          0 0 40px rgba(255, 87, 87, 0.5), 0 0 50px rgba(255, 87, 87, 0.5);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: translate(-50%, -50%) scale(1.1);
+          opacity: 0.8;
+        }
+      }
+
+      /* Create a subtle text shadow for better readability */
+      h1,
+      .tagline {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      }
+
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+
       @media (max-width: 600px) {
         .nav {
           flex-direction: column;
@@ -180,30 +227,10 @@
         .tagline {
           font-size: 1.2rem;
         }
-      }
-      .glow-circle {
-        width: 50px;
-        height: 50px;
-        position: fixed;
-        align-self: center;
-        background: radial-gradient(circle, rgb(255, 87, 87), transparent 100%);
-        border-radius: 50%;
-        animation: pulse 1.5s infinite;
-        margin: 20px 0;
-        box-shadow: 0 0 10px rgba(255, 87, 87, 0.5),
-          0 0 20px rgba(255, 87, 87, 0.5), 0 0 30px rgba(255, 87, 87, 0.5),
-          0 0 40px rgba(255, 87, 87, 0.5), 0 0 50px rgba(255, 87, 87, 0.5);
-      }
 
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: scale(1.1);
-          opacity: 0.8;
+        .glow-circle {
+          width: 150px;
+          height: 150px;
         }
       }
     </style>
@@ -211,44 +238,23 @@
   <body>
     <div class="">
       <nav class="nav">
-        <!--
-        <div class="logo">
-          <div class="logo-a">Â</div>
-        </div>  -->
         <ul class="menu">
           <li><a href="#">Work</a></li>
           <li><a href="#">About</a></li>
-          <li class="glow-circle"><a href="/"></a></li>
           <li><a href="#">Funzies</a></li>
           <li><a href="#">Resume</a></li>
         </ul>
       </nav>
 
       <div class="content">
-        <div class="main-logo">
-          <!--
-          <div
-            class="logo-a"
-            style="font-size: 4rem; font-family: 'Oldenburg', cursive"
-          >
-            Â
-          </div>-->
-        </div>
+        <div class="glow-circle"></div>
+
+        <div class="main-logo"></div>
         <h1>Adhithyan</h1>
         <p class="tagline">
           I'm a computer science student based in India, with a passion for many
           other things.
         </p>
-        <!--
-        <div class="projects">
-          <div class="project-card">
-            <div class="project-image"></div>
-          </div>
-          <div class="project-card">
-            <div class="project-image"></div>
-          </div>
-        </div>
-        -->
       </div>
     </div>
   </body>
