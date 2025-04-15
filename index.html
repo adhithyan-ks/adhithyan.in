@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="container">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,251 +11,260 @@
       rel="stylesheet"
     />
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+      @property --blink-opacity {
+        syntax: "<number>";
+        inherits: false;
+        initial-value: 1;
       }
 
-      html,
+      /* #fallback @keyframes blink-animation {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}*/
+
+      @keyframes blink-animation {
+        0%,
+        100% {
+          opacity: var(--blink-opacity, 1);
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      /*houdini*/
+
+      /*base*/
+      :root {
+        font-family: Inter, sans-serif;
+
+        --stripe-color: #fff;
+        --bg: var(--stripe-color);
+        --maincolor: var(--bg);
+      }
+
       body {
-        min-height: 100%;
+        width: 100cqw;
+        min-height: 100cqh;
+        display: flex;
+        place-content: center;
+        place-items: flex-start center;
+        background: var(--bg);
       }
 
-      body {
-        color: #000000;
-        margin: 0;
-        overflow-x: hidden;
-        position: relative;
-        font-family: "Hanken Grotesk", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 150;
-        font-style: normal;
-        cursor: crosshair;
+      /*custom*/
+
+      @keyframes smoothBg {
+        from {
+          background-position: 50% 50%, 50% 50%;
+        }
+        to {
+          background-position: 350% 50%, 350% 50%;
+        }
       }
 
-      .container {
+      .wrapper {
         width: 100%;
+        height: auto;
+        position: relative;
+      }
+
+      .hero {
+        width: 100%;
+        height: 100%;
         min-height: 100vh;
-        --color: rgba(69, 69, 69, 0.096);
-        background-color: #ffffff;
-        background-image: linear-gradient(
-            0deg,
-            transparent 24%,
-            var(--color) 25%,
-            var(--color) 26%,
-            transparent 27%,
-            transparent 74%,
-            var(--color) 75%,
-            var(--color) 76%,
-            transparent 77%,
-            transparent
-          ),
-          linear-gradient(
-            90deg,
-            transparent 24%,
-            var(--color) 25%,
-            var(--color) 26%,
-            transparent 27%,
-            transparent 74%,
-            var(--color) 75%,
-            var(--color) 76%,
-            transparent 77%,
-            transparent
-          );
-        background-size: 45px 45px;
-        background-attachment: fixed;
-        padding: 0 5%;
-      }
-
-      .nav {
+        position: relative;
         display: flex;
-        justify-content: center;
-        padding: 2rem 0;
+        place-content: center;
+        place-items: center;
+        --stripes: repeating-linear-gradient(
+          100deg,
+          var(--stripe-color) 0%,
+          var(--stripe-color) 7%,
+          transparent 10%,
+          transparent 12%,
+          var(--stripe-color) 16%
+        );
+
+        --rainbow: repeating-linear-gradient(
+          100deg,
+          #60a5fa 10%,
+          #e879f9 15%,
+          #60a5fa 20%,
+          #5eead4 25%,
+          #60a5fa 30%
+        );
+        background-image: var(--stripes), var(--rainbow);
+        background-size: 300%, 200%;
+        background-position: 50% 50%, 50% 50%;
+
+        filter: blur(10px) invert(100%);
+
+        mask-image: radial-gradient(
+          ellipse at 100% 0%,
+          black 40%,
+          transparent 70%
+        );
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background-image: var(--stripes), var(--rainbow);
+          background-size: 200%, 100%;
+          animation: smoothBg 60s linear infinite;
+          background-attachment: fixed;
+          mix-blend-mode: difference;
+        }
       }
 
-      .logo {
-        display: flex;
-        align-items: center;
+      :has(:checked) {
+        --stripe-color: #000;
       }
-
-      .logo-a {
-        color: rgb(0, 0, 0);
-        font-size: 2rem;
-        font-weight: bold;
-        margin-right: -0.5rem;
-        font-family: "Oldenburg", cursive;
-      }
-
-      .menu {
-        display: flex;
-        list-style: none;
-        justify-content: center;
-      }
-
-      .menu li {
-        margin-left: 2rem;
-      }
-
-      .menu a {
-        text-decoration: none;
-        color: #000000;
-        font-family: "Instrument Serif", serif;
-        font-size: 1.5rem;
+      :has(:checked) .hero,
+      :has(:checked) .hero::after {
+        filter: blur(10px) opacity(50%) saturate(200%);
       }
 
       .content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 4rem 0;
-        position: relative;
-      }
-
-      .main-logo {
-        margin-bottom: 2rem;
-        font-size: 4rem;
-        display: flex;
-      }
-
-      h1 {
-        font-family: "Instrument Serif", serif;
-        font-size: 3.5rem;
-        text-align: center;
-        margin-bottom: 1.5rem;
-        font-weight: normal;
-        position: relative;
-        z-index: 2;
-      }
-
-      .tagline {
-        text-align: center;
-        max-width: 800px;
-        font-size: 1.5rem;
-        line-height: 1.5;
-        margin-bottom: 4rem;
-        position: relative;
-        z-index: 2;
-      }
-
-      .projects {
-        display: flex;
-        gap: 2rem;
-        flex-wrap: wrap;
-        justify-content: center;
-        width: 100%;
-        max-width: 1200px;
-        margin-bottom: 2rem;
-      }
-
-      .project-card {
-        background: #ddd;
-        border-radius: 1rem;
-        overflow: hidden;
-        width: 100%;
-        max-width: 500px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      }
-
-      .project-image {
-        width: 100%;
-        height: 200px;
-        background-color: #ddd;
-      }
-
-      /* Using your exact glow-circle styles */
-      .glow-circle {
-        width: 200px;
-        height: 200px;
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        align-self: center;
-        background: radial-gradient(circle, rgb(255, 87, 87), white);
-        border-radius: 50%;
-        animation: pulse 1.5s infinite;
-        z-index: 1;
-        box-shadow: 0 0 10px rgba(255, 87, 87, 0.5),
-          0 0 20px rgba(255, 87, 87, 0.5), 0 0 30px rgba(255, 87, 87, 0.5),
-          0 0 40px rgba(255, 87, 87, 0.5), 0 0 50px rgba(255, 87, 87, 0.5);
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        flex-flow: column;
+        gap: 4.5%;
+        text-align: center;
+        mix-blend-mode: difference;
+        -webbkit-mix-blend-mode: difference;
+        filter: invert(1);
       }
 
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
+      .h1--scalingSize {
+        font-size: calc(1rem - -5vw);
+        position: relative;
+      }
+
+      #switch {
+        appearance: none;
+        -webkit-appearance: none;
+        opacity: 0;
+      }
+
+      [for="switch"] {
+        cursor: pointer;
+        transition: 0.15s linear(0 0%, 0.16 16.85%, 0.32 31.73%, 1 100%);
+        will-change: transform, font-weight;
+        padding: 0.5rem;
+      }
+
+      [for="switch"]:where(:hover, :active, :focus-within) {
+        /*transform: scale(1.2);
+  font-weight: 900;*/
+        transition: 0.3s ease;
+        animation: animSwitch 0.2s alternate;
+        & .icon {
+          animation-play-state: paused;
         }
+      }
+
+      @keyframes animSwitch {
         50% {
-          transform: translate(-50%, -50%) scale(1.1);
-          opacity: 0.8;
+          transform: scale(1.2);
+          font-weight: 900;
         }
       }
 
-      /* Create a subtle text shadow for better readability */
-      h1,
-      .tagline {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+      /*icon houdini*/
+      .icon {
+        width: 1lh;
+        height: 1lh;
+        aspect-ratio: 1/1;
+        padding: 0.25em 0.35rem;
+        border-radius: calc(1px / 0);
+        border: 1px dashed;
+        --blink-opacity: 1;
+        animation: blink-animation 2s ease-in-out infinite running;
       }
 
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
+      /*challenge*/
+      .h1--scalingSize::before {
+        content: attr(data-text);
+        position: absolute;
+        inset: 0;
+        background: white;
+        text-shadow: 0 0 1px #ffffff;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-color: white;
+        -webkit-mask: linear-gradient(#000 0 0) luminance;
+        mask: linear-gradient(#000 0 0) luminance, alpha;
+        backdrop-filter: blur(19px) brightness(12.5);
+        -webkit-text-stroke: 1px white;
+        display: flex;
+        margin: auto;
+        z-index: 1;
+        pointer-events: none;
+      }
+    </style>
+    <style>
+      /*
+      :root {
+        --violet: orange;
       }
 
-      @media (max-width: 600px) {
-        .nav {
-          flex-direction: column;
-          gap: 1rem;
-        }
+      .orb {
+        animation: spin 4s linear infinite;
+        width: 300px;
+        height: 300px;
+        margin: auto;
+        margin-top: 140px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 50px #fff, inset 20px 0 60px orange,
+          inset -20px 0 60px red, inset 20px 0 300px orange,
+          inset -20px 0 300px red, 0 0 50px #fff, -10px 0 60px orange,
+          10px 0 60px red;
+      }
 
-        .menu {
-          justify-content: center;
+      @keyframes spin {
+        100% {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
         }
-
-        .menu li {
-          margin: 0 1rem;
-        }
-
-        h1 {
-          font-size: 2.5rem;
-        }
-
-        .tagline {
-          font-size: 1.2rem;
-        }
-
-        .glow-circle {
-          width: 150px;
-          height: 150px;
-        }
+      }*/
+      .orb2 {
+        position: absolute;
+        top: calc(50% - 150px);
+        left: calc(50% - 150px);
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #f0f,
+          inset -20px 0 80px #0ff, inset 20px 0 300px #f0f,
+          inset -20px 0 300px #0ff, 0 0 50px #fff, -10px 0 80px #f0f,
+          10px 0 80px #0ff;
       }
     </style>
   </head>
   <body>
-    <div class="">
-      <nav class="nav">
-        <ul class="menu">
-          <li><a href="#">Work</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Funzies</a></li>
-          <li><a href="#">Resume</a></li>
-        </ul>
-      </nav>
-
+    <section class="wrapper">
+      <div class="hero"></div>
       <div class="content">
-        <div class="glow-circle"></div>
-
-        <div class="main-logo"></div>
-        <h1>Adhithyan</h1>
-        <p class="tagline">
-          I'm a computer science student based in India, with a passion for many
-          other things.
-        </p>
+        <div class="orb"></div>
+        <div class="orb2"></div>
+        <h1 class="h1--scalingSize" data-text="An awesome title">
+          An awesome title
+        </h1>
+        <input type="checkbox" id="switch" />
+        <label for="switch"
+          ><span><span class="icon">→</span> switch bg</span></label
+        >
       </div>
-    </div>
+    </section>
   </body>
 </html>
