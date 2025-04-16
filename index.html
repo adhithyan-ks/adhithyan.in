@@ -168,7 +168,8 @@
         bottom: 32px;
         left: 50%;
         transform: translateX(-50%);
-        background-color: #222;
+        backdrop-filter: blur(10px);
+        background-color: rgba(81, 81, 81, 0.1);
         border-radius: 8px;
         padding: 5px 8px;
         display: flex;
@@ -182,6 +183,9 @@
         display: flex;
         align-items: center;
         gap: 5px;
+      }
+      .profile-section:hover {
+        cursor: pointer;
       }
 
       .profile-img {
@@ -203,6 +207,8 @@
         font-weight: 500;
         font-size: 15px;
         color: #eee;
+        text-align: center;
+        padding-right: 8px;
       }
 
       .divider {
