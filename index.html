@@ -14,179 +14,160 @@
       * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
       }
 
       html,
       body {
-        min-height: 100%;
-        background-color: black;
+        height: 100%;
       }
 
       body {
-        color: #ffffff;
-        margin: 0;
-        overflow-x: hidden;
+        display: table;
+        width: 100%;
+        height: 100%;
+        background-color: #171717;
+        color: #eee;
+        line-height: 1.6;
         position: relative;
-        font-family: "Hanken Grotesk", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 150;
-        font-style: normal;
-        cursor: crosshair;
+        font-family: sans-serif;
+        overflow: hidden;
       }
 
-      .nav {
-        display: flex;
-        justify-content: center;
-        padding: 2rem 0;
+      .lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        margin: auto;
+        width: 100%;
       }
 
-      .menu {
-        display: flex;
-        list-style: none;
-        justify-content: center;
+      .line {
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
       }
 
-      .menu li {
-        margin-left: 2rem;
+      .line::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 15vh;
+        width: 100%;
+        top: -50%;
+        left: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          #ffffff 75%,
+          #ffffff 100%
+        );
+        animation: drop 7s infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
       }
 
-      .menu a {
-        text-decoration: none;
-        color: #ffffff;
-        font-family: "Instrument Serif", serif;
-        font-size: 1.5rem;
+      /* Evenly spaced lines */
+      .line:nth-child(1) {
+        left: 10%;
+      }
+      .line:nth-child(1)::after {
+        animation-delay: 0s;
+      }
+
+      .line:nth-child(2) {
+        left: 30%;
+      }
+      .line:nth-child(2)::after {
+        animation-delay: 1s;
+      }
+
+      .line:nth-child(3) {
+        left: 50%;
+      }
+      .line:nth-child(3)::after {
+        animation-delay: 2s;
+      }
+
+      .line:nth-child(4) {
+        left: 70%;
+      }
+      .line:nth-child(4)::after {
+        animation-delay: 3s;
+      }
+
+      .line:nth-child(5) {
+        left: 90%;
+      }
+      .line:nth-child(5)::after {
+        animation-delay: 4s;
+      }
+
+      /* Animation */
+      @keyframes drop {
+        0% {
+          top: -50%;
+        }
+        100% {
+          top: 110%;
+        }
       }
 
       .content {
         display: flex;
-        flex-direction: column; /*
+        flex-direction: column;
         align-items: center;
-        justify-content: center;*/
-        margin: 100px;
-        padding: 4rem;
+        justify-content: center;
         position: relative;
-      }
-
-      .main-logo {
-        margin-bottom: 2rem;
-        font-size: 4rem;
-        display: flex;
       }
 
       h1 {
         font-family: "Instrument Serif", serif;
-        font-size: 3.5rem;
-        text-align: left;
-        margin-bottom: 1.5rem;
+        font-size: 5.5rem;
+        text-align: center;
         font-weight: normal;
         position: relative;
         z-index: 2;
-      }
-
-      .tagline {
-        max-width: 800px;
-        font-size: 1.5rem;
-        line-height: 1.5;
-        margin-bottom: 4rem;
-        position: relative;
-        z-index: 2;
-      }
-
-      /* Using your exact glow-circle styles */
-      .glow-circle {
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        align-self: center;
-        background: radial-gradient(circle, rgb(255, 87, 87), white);
-        border-radius: 50%;
-        animation: pulse 1.5s infinite;
-        z-index: 1;
-        box-shadow: 0 0 10px rgba(255, 87, 87, 0.5),
-          0 0 20px rgba(255, 87, 87, 0.5), 0 0 30px rgba(255, 87, 87, 0.5),
-          0 0 40px rgba(255, 87, 87, 0.5), 0 0 50px rgba(255, 87, 87, 0.5);
-      }
-
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: translate(-50%, -50%) scale(1.1);
-          opacity: 0.8;
-        }
-      }
-
-      /* Create a subtle text shadow for better readability 
-      h1,
-      .tagline {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-      }*/
-
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
-      }
-
-      @media (max-width: 600px) {
-        .nav {
-          flex-direction: column;
-          gap: 1rem;
-        }
-
-        .menu {
-          justify-content: center;
-        }
-
-        .menu li {
-          margin: 0 1rem;
-        }
-
-        h1 {
-          font-size: 2.5rem;
-        }
-
-        .tagline {
-          font-size: 1.2rem;
-        }
-
-        .glow-circle {
-          width: 150px;
-          height: 150px;
-        }
+        padding-top: 20%;
       }
     </style>
   </head>
   <body>
-    <!--
-    <nav class="nav">
-      <ul class="menu">
-        <li><a href="#">Work</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Funzies</a></li>
-        <li><a href="#">Resume</a></li>
-      </ul>
-    </nav>-->
-
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
     <div class="content">
       <div class="main-logo"></div>
       <h1>Adhithyan</h1>
-      <img
-        src="pfp.png"
-        alt="Adhithyan"
-        style="height: 100px; width: 100px; border-radius: 20px"
-      />
-      <p class="tagline">
-        I'm a computer science student based in India, with a passion for many
-        other things.
-      </p>
+      <div class="links">
+        <ul>
+          <li>
+            <a href="https://www.linkedin.com/in/adhithyanks/" target="_blank"
+              >LinkedIn</a
+            >
+          </li>
+          <li>
+            <a href="https://github.com/adhithyan-ks" target="_blank">GitHub</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/adhithyan.in/" target="_blank"
+              >Instagram</a
+            >
+          </li>
+          <li>
+            <a href="mailto:adhithyanktd@gmail.com" target="_blank">Email</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </body>
 </html>
