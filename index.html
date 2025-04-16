@@ -164,6 +164,7 @@
       }
 
       /* Fixed navigation bar */
+      /* Fixed navigation bar */
       .fixed-nav {
         position: fixed;
         bottom: 32px;
@@ -178,6 +179,28 @@
         gap: 5px;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         z-index: 1000;
+        transition: width 0.3s ease, padding 0.3s ease;
+        width: auto;
+        overflow: hidden;
+      }
+
+      /* When any button is hovered, expand the navbar width */
+      .fixed-nav:has(.button-wrapper:hover) {
+        width: auto;
+        padding-right: 120px; /* Adjust this value based on your label widths */
+      }
+
+      /* Adjust width specifically for each button hover to ensure proper sizing */
+      .fixed-nav:has(#dev-wrapper:hover) {
+        padding-right: 90px;
+      }
+
+      .fixed-nav:has(#projects-wrapper:hover) {
+        padding-right: 120px;
+      }
+
+      .fixed-nav:has(#blog-wrapper:hover) {
+        padding-right: 100px;
       }
 
       .profile-section {
@@ -231,6 +254,7 @@
       .icon-buttons {
         display: flex;
         gap: 5px;
+        position: relative;
       }
 
       .icon-button {
@@ -240,16 +264,70 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: background-color 0.2s ease;
+        transition: all 0.3s ease;
         cursor: pointer;
+        position: relative;
+        z-index: 2;
       }
 
       .icon-button:hover {
         background-color: rgba(255, 255, 255, 0.1);
       }
+
       .icon-button:hover svg {
         fill: #ffffff;
         filter: drop-shadow(0 0 8px #ffffff);
+      }
+
+      /* Label element for each icon */
+      .icon-button .label {
+        position: absolute;
+        left: calc(100% + 8px);
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 14px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        font-family: "Hanken Grotesk", sans-serif;
+        pointer-events: none;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+
+      /* Container for each icon button and label */
+      .button-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        margin-right: 0;
+      }
+
+      /* When hovering over a button, show its label */
+      .button-wrapper:hover .label {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* Adjust spacing for each subsequent button when any button is hovered */
+      .button-wrapper:hover ~ .button-wrapper {
+        transform: translateX(80px);
+      }
+
+      /* Different offset for each button */
+      #dev-wrapper:hover ~ .button-wrapper {
+        transform: translateX(60px);
+      }
+
+      #projects-wrapper:hover ~ .button-wrapper {
+        transform: translateX(95px);
+      }
+
+      #blog-wrapper:hover ~ .button-wrapper {
+        transform: translateX(70px);
       }
     </style>
   </head>
@@ -333,44 +411,53 @@
 
       <div class="divider"></div>
       <div class="icon-buttons">
-        <div class="icon-button" id="dev">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#FFFFFF"
-          >
-            <path
-              d="M560-160v-80h120q17 0 28.5-11.5T720-280v-80q0-38 22-69t58-44v-14q-36-13-58-44t-22-69v-80q0-17-11.5-28.5T680-720H560v-80h120q50 0 85 35t35 85v80q0 17 11.5 28.5T840-560h40v160h-40q-17 0-28.5 11.5T800-360v80q0 50-35 85t-85 35H560Zm-280 0q-50 0-85-35t-35-85v-80q0-17-11.5-28.5T120-400H80v-160h40q17 0 28.5-11.5T160-600v-80q0-50 35-85t85-35h120v80H280q-17 0-28.5 11.5T240-680v80q0 38-22 69t-58 44v14q36 13 58 44t22 69v80q0 17 11.5 28.5T280-240h120v80H280Z"
-            />
-          </svg>
+        <div class="button-wrapper" id="dev-wrapper">
+          <div class="icon-button" id="dev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M560-160v-80h120q17 0 28.5-11.5T720-280v-80q0-38 22-69t58-44v-14q-36-13-58-44t-22-69v-80q0-17-11.5-28.5T680-720H560v-80h120q50 0 85 35t35 85v80q0 17 11.5 28.5T840-560h40v160h-40q-17 0-28.5 11.5T800-360v80q0 50-35 85t-85 35H560Zm-280 0q-50 0-85-35t-35-85v-80q0-17-11.5-28.5T120-400H80v-160h40q17 0 28.5-11.5T160-600v-80q0-50 35-85t85-35h120v80H280q-17 0-28.5 11.5T240-680v80q0 38-22 69t-58 44v14q36 13 58 44t22 69v80q0 17 11.5 28.5T280-240h120v80H280Z"
+              />
+            </svg>
+            <span class="label">Dev</span>
+          </div>
         </div>
-        <div class="icon-button" id="projects">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#FFFFFF"
-          >
-            <path
-              d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z"
-            />
-          </svg>
+        <div class="button-wrapper" id="projects-wrapper">
+          <div class="icon-button" id="projects">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z"
+              />
+            </svg>
+            <span class="label">Projects</span>
+          </div>
         </div>
-        <div class="icon-button" id="blog">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="#FFFFFF"
-          >
-            <path
-              d="M120-120v-720h720v720H120Zm600-160H240v60h480v-60Zm-480-60h480v-60H240v60Zm0-140h480v-240H240v240Zm0 200v60-60Zm0-60v-60 60Zm0-140v-240 240Zm0 80v-80 80Zm0 120v-60 60Z"
-            />
-          </svg>
+        <div class="button-wrapper" id="blog-wrapper">
+          <div class="icon-button" id="blog">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M120-120v-720h720v720H120Zm600-160H240v60h480v-60Zm-480-60h480v-60H240v60Zm0-140h480v-240H240v240Zm0 200v60-60Zm0-60v-60 60Zm0-140v-240 240Zm0 80v-80 80Zm0 120v-60 60Z"
+              />
+            </svg>
+            <span class="label">Blog</span>
+          </div>
         </div>
       </div>
     </div>
