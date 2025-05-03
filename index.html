@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Adhithyan - Product Designer</title>
+    <title>Adhithyan</title>
+    <link rel="icon" href="pfpsquare.jpg" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,179 +15,460 @@
       * {
         margin: 0;
         padding: 0;
-        box-sizing: border-box;
+        box-sizing: border-box !important;
       }
 
       html,
       body {
-        min-height: 100%;
-        background-color: black;
+        height: 100%;
       }
 
       body {
-        color: #ffffff;
-        margin: 0;
-        overflow-x: hidden;
+        display: table;
+        width: 100%;
+        height: 100%;
+        background-color: #171717;
+        color: #eee;
+        line-height: 1.6;
         position: relative;
-        font-family: "Hanken Grotesk", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 150;
-        font-style: normal;
-        cursor: crosshair;
+        font-family: sans-serif;
+        overflow: hidden;
       }
 
-      .nav {
-        display: flex;
-        justify-content: center;
-        padding: 2rem 0;
+      .lines {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        margin: auto;
+        width: 100%;
       }
 
-      .menu {
-        display: flex;
-        list-style: none;
-        justify-content: center;
+      .line {
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        top: 0;
+        background: rgba(255, 255, 255, 0.1);
+        overflow: hidden;
       }
 
-      .menu li {
-        margin-left: 2rem;
+      .line::after {
+        content: "";
+        display: block;
+        position: absolute;
+        height: 15vh;
+        width: 100%;
+        top: -50%;
+        left: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0%,
+          #ffffff 75%,
+          #ffffff 100%
+        );
+        animation: drop 7s infinite;
+        animation-fill-mode: forwards;
+        animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
       }
 
-      .menu a {
-        text-decoration: none;
-        color: #ffffff;
-        font-family: "Instrument Serif", serif;
-        font-size: 1.5rem;
+      .line:nth-child(1) {
+        left: 10%;
+      }
+      .line:nth-child(1)::after {
+        animation-delay: 0s;
+      }
+
+      .line:nth-child(2) {
+        left: 30%;
+      }
+      .line:nth-child(2)::after {
+        animation-delay: 1s;
+      }
+
+      .line:nth-child(3) {
+        left: 50%;
+      }
+      .line:nth-child(3)::after {
+        animation-delay: 2s;
+      }
+
+      .line:nth-child(4) {
+        left: 70%;
+      }
+      .line:nth-child(4)::after {
+        animation-delay: 3s;
+      }
+
+      .line:nth-child(5) {
+        left: 90%;
+      }
+      .line:nth-child(5)::after {
+        animation-delay: 4s;
+      }
+
+      @keyframes drop {
+        0% {
+          top: -50%;
+        }
+        100% {
+          top: 110%;
+        }
       }
 
       .content {
         display: flex;
-        flex-direction: column; /*
+        flex-direction: column;
         align-items: center;
-        justify-content: center;*/
-        margin: 100px;
-        padding: 4rem;
+        justify-content: center;
         position: relative;
-      }
-
-      .main-logo {
-        margin-bottom: 2rem;
-        font-size: 4rem;
-        display: flex;
       }
 
       h1 {
         font-family: "Instrument Serif", serif;
-        font-size: 3.5rem;
-        text-align: left;
-        margin-bottom: 1.5rem;
+        font-size: 5.5rem;
+        text-align: center;
         font-weight: normal;
         position: relative;
         z-index: 2;
+        padding-top: 15%;
       }
 
-      .tagline {
-        max-width: 800px;
-        font-size: 1.5rem;
-        line-height: 1.5;
-        margin-bottom: 4rem;
+      .links {
+        margin-top: 2rem;
         position: relative;
         z-index: 2;
       }
 
-      /* Using your exact glow-circle styles */
-      .glow-circle {
-        width: 200px;
-        height: 200px;
-        position: absolute;
-        top: 50%;
+      .links ul {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+        justify-content: center;
+      }
+
+      .links svg {
+        width: 32px;
+        height: 32px;
+        fill: #eee;
+        transition: fill 0.3s ease, transform 0.3s ease;
+      }
+
+      .links a:hover svg {
+        fill: #ffffff;
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 8px #ffffff);
+      }
+
+      .fixed-nav {
+        position: fixed;
+        bottom: 32px;
         left: 50%;
-        transform: translate(-50%, -50%);
-        align-self: center;
-        background: radial-gradient(circle, rgb(255, 87, 87), white);
-        border-radius: 50%;
-        animation: pulse 1.5s infinite;
-        z-index: 1;
-        box-shadow: 0 0 10px rgba(255, 87, 87, 0.5),
-          0 0 20px rgba(255, 87, 87, 0.5), 0 0 30px rgba(255, 87, 87, 0.5),
-          0 0 40px rgba(255, 87, 87, 0.5), 0 0 50px rgba(255, 87, 87, 0.5);
+        transform: translateX(-50%);
+        backdrop-filter: blur(10px);
+        background-color: rgba(81, 81, 81, 0.1);
+        border-radius: 8px;
+        padding: 5px 8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        z-index: 1000;
+        transition: width 0.3s ease, padding 0.3s ease;
+        width: auto;
+        overflow: hidden;
       }
 
-      @keyframes pulse {
-        0%,
-        100% {
-          transform: translate(-50%, -50%) scale(1);
-          opacity: 1;
-        }
-        50% {
-          transform: translate(-50%, -50%) scale(1.1);
-          opacity: 0.8;
-        }
+      .fixed-nav:hover {
+        width: auto;
+        padding-right: 120px;
       }
 
-      /* Create a subtle text shadow for better readability 
-      h1,
-      .tagline {
-        text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-      }*/
-
-      @keyframes fadeIn {
-        to {
-          opacity: 1;
-        }
+      .profile-section:hover ~ .icon-buttons .button-wrapper {
+        transform: translateX(0);
       }
 
-      @media (max-width: 600px) {
-        .nav {
-          flex-direction: column;
-          gap: 1rem;
-        }
+      .profile-section {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .profile-section:hover {
+        cursor: pointer;
+      }
 
-        .menu {
-          justify-content: center;
-        }
+      .profile-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 20%;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #444;
+        background-color: #444;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
 
-        .menu li {
-          margin: 0 1rem;
-        }
+      .profile-name {
+        font-family: "Hanken Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 15px;
+        color: #eee;
+        text-align: center;
+        padding-right: 8px;
+      }
 
-        h1 {
-          font-size: 2.5rem;
-        }
+      .divider {
+        width: 2px;
+        height: 20px;
+        background-color: rgb(255, 255, 255);
+      }
 
-        .tagline {
-          font-size: 1.2rem;
-        }
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 6px;
+        transition: background-color 0.2s ease;
+        cursor: pointer;
+      }
 
-        .glow-circle {
-          width: 150px;
-          height: 150px;
-        }
+      .icon-buttons {
+        display: flex;
+        gap: 5px;
+        position: relative;
+      }
+
+      .icon-button {
+        width: 36px;
+        height: 36px;
+        border-radius: 15%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+      }
+
+      .icon-button:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .icon-button:hover svg {
+        fill: #ffffff;
+        filter: drop-shadow(0 0 8px #ffffff);
+      }
+
+      .icon-button .label {
+        position: absolute;
+        left: calc(100% + 8px);
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 14px;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        font-family: "Hanken Grotesk", sans-serif;
+        pointer-events: none;
+        text-transform: capitalize;
+        font-weight: 500;
+      }
+
+      .button-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+        margin-right: 0;
+      }
+
+      .button-wrapper:hover .label {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .fixed-nav:hover .button-wrapper:hover ~ .button-wrapper {
+        transform: translateX(80px);
+      }
+
+      .fixed-nav:hover #dev-wrapper:hover ~ .button-wrapper {
+        transform: translateX(60px);
+      }
+
+      .fixed-nav:hover #projects-wrapper:hover ~ .button-wrapper {
+        transform: translateX(95px);
+      }
+
+      .fixed-nav:hover #blog-wrapper:hover ~ .button-wrapper {
+        transform: translateX(70px);
+      }
+
+      .fixed-nav:hover {
+        padding-right: 120px;
+      }
+
+      #dev-wrapper:hover ~ .button-wrapper {
+        transform: translateX(60px);
+      }
+
+      #projects-wrapper:hover ~ .button-wrapper {
+        transform: translateX(95px);
+      }
+
+      #blog-wrapper:hover ~ .button-wrapper {
+        transform: translateX(70px);
+      }
+
+      .fixed-nav:not(:hover) {
+        width: auto;
+        padding-right: 8px;
+      }
+
+      .fixed-nav:not(:hover) .button-wrapper .label {
+        opacity: 0;
+        visibility: hidden;
+      }
+
+      .fixed-nav:not(:hover) .button-wrapper ~ .button-wrapper {
+        transform: translateX(0);
       }
     </style>
   </head>
   <body>
-    <!--
-    <nav class="nav">
-      <ul class="menu">
-        <li><a href="#">Work</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Funzies</a></li>
-        <li><a href="#">Resume</a></li>
-      </ul>
-    </nav>-->
-
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
     <div class="content">
       <div class="main-logo"></div>
       <h1>Adhithyan</h1>
-      <img
-        src="pfp.png"
-        alt="Adhithyan"
-        style="height: 100px; width: 100px; border-radius: 20px"
-      />
-      <p class="tagline">
-        I'm a computer science student based in India, with a passion for many
-        other things.
-      </p>
+      <div class="links">
+        <ul>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/adhithyanks/"
+              target="_blank"
+              title="LinkedIn"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/adhithyan-ks"
+              target="_blank"
+              title="GitHub"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.instagram.com/adhithyan.in/"
+              target="_blank"
+              title="Instagram"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                />
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:adhithyanktd@gmail.com"
+              target="_blank"
+              title="Email"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path
+                  d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"
+                />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
+<!--
+    <div class="fixed-nav">
+      <div class="profile-section">
+        <div class="profile-img">
+          <img src="pfpsquare.jpg" alt="Profile" width="30" height="30" />
+        </div>
+        <div class="profile-name">Adhithyan</div>
+        <div class="divider"></div>
+      </div>
+      <div class="icon-buttons">
+        <div class="button-wrapper" id="dev-wrapper">
+          <div class="icon-button" id="dev">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M560-160v-80h120q17 0 28.5-11.5T720-280v-80q0-38 22-69t58-44v-14q-36-13-58-44t-22-69v-80q0-17-11.5-28.5T680-720H560v-80h120q50 0 85 35t35 85v80q0 17 11.5 28.5T840-560h40v160h-40q-17 0-28.5 11.5T800-360v80q0 50-35 85t-85 35H560Zm-280 0q-50 0-85-35t-35-85v-80q0-17-11.5-28.5T120-400H80v-160h40q17 0 28.5-11.5T160-600v-80q0-50 35-85t85-35h120v80H280q-17 0-28.5 11.5T240-680v80q0 38-22 69t-58 44v14q36 13 58 44t22 69v80q0 17 11.5 28.5T280-240h120v80H280Z"
+              />
+            </svg>
+            <span class="label">dev</span>
+          </div>
+        </div>
+        <div class="button-wrapper" id="projects-wrapper">
+          <div class="icon-button" id="projects">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h240l80 80h320q33 0 56.5 23.5T880-640H447l-80-80H160v480l96-320h684L837-217q-8 26-29.5 41.5T760-160H160Zm84-80h516l72-240H316l-72 240Zm0 0 72-240-72 240Zm-84-400v-80 80Z"
+              />
+            </svg>
+            <span class="label">projects</span>
+          </div>
+        </div>
+        <div class="button-wrapper" id="blog-wrapper">
+          <div class="icon-button" id="blog">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="#FFFFFF"
+            >
+              <path
+                d="M120-120v-720h720v720H120Zm600-160H240v60h480v-60Zm-480-60h480v-60H240v60Zm0-140h480v-240H240v240Zm0 200v60-60Zm0-60v-60 60Zm0-140v-240 240Zm0 80v-80 80Zm0 120v-60 60Z"
+              />
+            </svg>
+            <span class="label">blog</span>
+          </div>
+        </div>
+      </div>
+    </div>-->
   </body>
 </html>
