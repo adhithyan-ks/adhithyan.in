@@ -46,6 +46,7 @@
 	"dependencies": {
 		"class-variance-authority": "^0.7.1",
 		"lucide-svelte": "^0.544.0",
+		"mode-watcher": "^1.1.0",
 		"svelte-motion": "^0.12.2"
 	}
 }
