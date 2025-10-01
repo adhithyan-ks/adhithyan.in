@@ -1,52 +1,18 @@
 <script lang="ts">
-  // 1. Import the component you created.
-  // Adjust the path if you saved it elsewhere, e.g., '$lib/components/ResumeCard.svelte'.
-  import ResumeCard from './ResumeCard.svelte';
+  import ResumeCard from '$lib/components/ResumeCard.svelte';
 
-  // 2. Define the data you want to display.
-  // This could come from a `load` function, an API call, or be defined directly.
   const workExperience = {
-    logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg',
-    altText: 'Svelte',
-    title: 'Senior Frontend Developer',
-    subtitle: 'Innovate Corp.',
-    href: 'https://svelte.dev',
+    src: 'https://www.joonsquare.com/usermanage/image/business/government-polytechnic-thrissur-14850/government-polytechnic-thrissur-logo.png',
+    alt: 'GPTC-KKM',
+    title: 'Government Polytechnic College, Kunnamkulam',
+    subtitle: 'Computer Engineering',
+    href: 'http://www.gptckunnamkulam.ac.in/',
     badges: [],
-    period: '2022 - Present',
-    description: 'Leading the development of a next-generation web platform using SvelteKit. Responsible for component architecture, state management, and performance optimization.'
+    period: '2023 - 2026 (Expected)',
+    description: 'Diploma in Computer Engineering'
   };
 </script>
-
-<main class="p-8 max-w-2xl mx-auto">
-  <h1 class="text-3xl font-bold mb-6">My Experience</h1>
-
-  <ResumeCard
-    logoUrl={workExperience.logoUrl}
-    altText={workExperience.altText}
-    title={workExperience.title}
-    subtitle={workExperience.subtitle}
-    href={workExperience.href}
-    badges={workExperience.badges}
-    period={workExperience.period}
-    description={workExperience.description}
-  />
-
-  <!-- <div class="mt-4">
-     <ResumeCard
-        logoUrl="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
-        altText="React"
-        title="Frontend Developer"
-        subtitle="Legacy Systems Inc."
-        href="https://react.dev"
-        badges={['React', 'Next.js']}
-        period="2020 - 2022"
-        description="Built and maintained client-facing applications with React and Next.js."
-      />
-  </div> -->
-
-</main>
 <div>
-    <!-- <DockExample /> -->
  <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
   Hi, I'm Adhithyan 👋
  </h1>
@@ -64,6 +30,17 @@
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Education
  </h3>
+ <ResumeCard
+  src={workExperience.src}
+    alt={workExperience.alt}
+    title={workExperience.title}
+    subtitle={workExperience.subtitle}
+    href={workExperience.href}
+    badges={workExperience.badges}
+    period={workExperience.period}
+    description={workExperience.description}
+  />
+
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   The king&apos;s subjects were not amused. They grumbled and complained, but
   the king was firm:
