@@ -1,4 +1,8 @@
+<script>
+    import DockBar from "$lib/components/ui/DockBar.svelte";
+</script>
 <div>
+    <DockBar />
  <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
   Hi, I'm Adhithyan 👋
  </h1>
