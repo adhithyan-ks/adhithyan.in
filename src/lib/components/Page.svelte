@@ -1,45 +1,75 @@
 <script lang="ts">
-    import DockBar from "$lib/components/ui/DockBar.svelte";
-	import DockExample from "$lib/components/ui/DockExample.svelte";
+  // 1. Import the component you created.
+  // Adjust the path if you saved it elsewhere, e.g., '$lib/components/ResumeCard.svelte'.
+  import ResumeCard from './ResumeCard.svelte';
+
+  // 2. Define the data you want to display.
+  // This could come from a `load` function, an API call, or be defined directly.
+  const workExperience = {
+    logoUrl: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/svelte/svelte-original.svg',
+    altText: 'Svelte',
+    title: 'Senior Frontend Developer',
+    subtitle: 'Innovate Corp.',
+    href: 'https://svelte.dev',
+    badges: [],
+    period: '2022 - Present',
+    description: 'Leading the development of a next-generation web platform using SvelteKit. Responsible for component architecture, state management, and performance optimization.'
+  };
 </script>
 
+<main class="p-8 max-w-2xl mx-auto">
+  <h1 class="text-3xl font-bold mb-6">My Experience</h1>
+
+  <ResumeCard
+    logoUrl={workExperience.logoUrl}
+    altText={workExperience.altText}
+    title={workExperience.title}
+    subtitle={workExperience.subtitle}
+    href={workExperience.href}
+    badges={workExperience.badges}
+    period={workExperience.period}
+    description={workExperience.description}
+  />
+
+  <!-- <div class="mt-4">
+     <ResumeCard
+        logoUrl="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"
+        altText="React"
+        title="Frontend Developer"
+        subtitle="Legacy Systems Inc."
+        href="https://react.dev"
+        badges={['React', 'Next.js']}
+        period="2020 - 2022"
+        description="Built and maintained client-facing applications with React and Next.js."
+      />
+  </div> -->
+
+</main>
 <div>
     <!-- <DockExample /> -->
  <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
   Hi, I'm Adhithyan 👋
  </h1>
- <p class="text-muted-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
+ <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
   Once upon a time, in a far-off land, there was a very lazy king who spent
   all day lounging on his throne. One day, his advisors came to him with a
   problem: the kingdom was running out of money.
  </p>
- <h2
-  class="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0"
- >
-  The King&apos;s Plan
- </h2>
+<h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
+  About
+ </h3>
  <p class="leading-7 [&:not(:first-child)]:mt-6">
-  The king thought long and hard, and finally came up with
-  <a href="##" class="text-primary font-medium underline underline-offset-4">
-   a brilliant plan
-  </a>
-  : he would tax the jokes in the kingdom.
+  I am a computer engineering student from Kerala, India, passionate about coding and exploring software and web development. I began coding in 2019, mostly in Scratch.I have basic knowledge of C programming, MySQL, JavaScript and PHP. My goals include enhancing my skills, building a strong portfolio, and contributing to open-source projects while collaborating with other developers
  </p>
- <blockquote class="mt-6 border-l-2 pl-6 italic">
-  &quot;After all,&quot; he said, &quot;everyone enjoys a good joke, so
-  it&apos;s only fair that they should pay for the privilege.&quot;
- </blockquote>
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-  The Joke Tax
+  Education
  </h3>
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   The king&apos;s subjects were not amused. They grumbled and complained, but
   the king was firm:
  </p>
  <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-  <li>1st level of puns: 5 gold coins</li>
-  <li>2nd level of jokes: 10 gold coins</li>
-  <li>3rd level of one-liners : 20 gold coins</li>
+
  </ul>
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   As a result, people stopped telling jokes, and the kingdom fell into a
@@ -47,7 +77,7 @@
   foolishness get him down: a court jester named Jokester.
  </p>
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-  Jokester&apos;s Revolt
+  Skills
  </h3>
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   Jokester began sneaking into the castle in the middle of the night and
@@ -61,75 +91,10 @@
   they started laughing, they couldn&apos;t stop.
  </p>
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-  The People&apos;s Rebellion
+  My Projects
  </h3>
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   The people of the kingdom, feeling uplifted by the laughter, started to tell
   jokes and puns again, and soon the entire kingdom was in on the joke.
- </p>
- <div class="my-6 w-full overflow-y-auto">
-  <table class="w-full">
-   <thead>
-    <tr class="even:bg-muted m-0 border-t p-0">
-     <th
-      class="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      King&apos;s Treasury
-     </th>
-     <th
-      class="border px-4 py-2 text-left font-bold [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      People&apos;s happiness
-     </th>
-    </tr>
-   </thead>
-   <tbody>
-    <tr class="even:bg-muted m-0 border-t p-0">
-     <td
-      class="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      Empty
-     </td>
-     <td
-      class="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      Overflowing
-     </td>
-    </tr>
-    <tr class="even:bg-muted m-0 border-t p-0">
-     <td
-      class="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      Modest
-     </td>
-     <td
-      class="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      Satisfied
-     </td>
-    </tr>
-    <tr class="even:bg-muted m-0 border-t p-0">
-     <td
-      class="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      Full
-     </td>
-     <td
-      class="border px-4 py-2 text-left [&[align=center]]:text-center [&[align=right]]:text-right"
-     >
-      Ecstatic
-     </td>
-    </tr>
-   </tbody>
-  </table>
- </div>
- <p class="leading-7 [&:not(:first-child)]:mt-6">
-  The king, seeing how much happier his subjects were, realized the error of
-  his ways and repealed the joke tax. Jokester was declared a hero, and the
-  kingdom lived happily ever after.
- </p>
- <p class="leading-7 [&:not(:first-child)]:mt-6">
-  The moral of the story is: never underestimate the power of a good laugh and
-  always be careful of bad ideas.
  </p>
 </div>
