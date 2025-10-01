@@ -1,15 +1,24 @@
 <script lang="ts">
   import ResumeCard from '$lib/components/ResumeCard.svelte';
 
-  const workExperience = {
-    src: 'https://www.joonsquare.com/usermanage/image/business/government-polytechnic-thrissur-14850/government-polytechnic-thrissur-logo.png',
-    alt: 'GPTC-KKM',
-    title: 'Government Polytechnic College, Kunnamkulam',
-    subtitle: 'Computer Engineering',
-    href: 'http://www.gptckunnamkulam.ac.in/',
-    badges: [],
-    period: '2023 - 2026 (Expected)',
-    description: 'Diploma in Computer Engineering'
+  const education = [
+    {
+      src: 'https://www.joonsquare.com/usermanage/image/business/government-polytechnic-thrissur-14850/government-polytechnic-thrissur-logo.png',
+      alt: 'GPTC-KKM',
+      title: 'Government Polytechnic College, Kunnamkulam',
+      subtitle: 'Computer Engineering',
+      href: 'http://www.gptckunnamkulam.ac.in/',
+      badges: [],
+      period: '2023 - 2026 (Expected)',
+      description: 'Diploma in Computer Engineering'
+    },
+  ];
+  const skills = {
+    languages: ['JavaScript', 'TypeScript', 'Python', 'C', 'C++', 'HTML', 'CSS', 'SQL'],
+    frameworks: ['SvelteKit', 'Node.js', 'Express.js', 'Flask'],
+    tools: ['Git', 'Docker', 'VS Code', 'Figma'],
+    databases: ['MySQL', 'MongoDB'],
+    others: ['REST APIs', 'GraphQL', 'CI/CD']
   };
 </script>
 <div>
@@ -17,61 +26,50 @@
   Hi, I'm Adhithyan 👋
  </h1>
  <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
-  Once upon a time, in a far-off land, there was a very lazy king who spent
-  all day lounging on his throne. One day, his advisors came to him with a
-  problem: the kingdom was running out of money.
+  Someone who is very interested in tech and web.
  </p>
 <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   About
  </h3>
  <p class="leading-7 [&:not(:first-child)]:mt-6">
-  I am a computer engineering student from Kerala, India, passionate about coding and exploring software and web development. I began coding in 2019, mostly in Scratch.I have basic knowledge of C programming, MySQL, JavaScript and PHP. My goals include enhancing my skills, building a strong portfolio, and contributing to open-source projects while collaborating with other developers
+  I am a computer engineering student from Kerala, India, passionate about coding and exploring software and web development. I began coding in 2019, mostly in Scratch. Work mostly around web. I have built some websites using Sveltekit.
  </p>
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Education
  </h3>
- <ResumeCard
-  src={workExperience.src}
-    alt={workExperience.alt}
-    title={workExperience.title}
-    subtitle={workExperience.subtitle}
-    href={workExperience.href}
-    badges={workExperience.badges}
-    period={workExperience.period}
-    description={workExperience.description}
-  />
-
- <p class="leading-7 [&:not(:first-child)]:mt-6">
-  The king&apos;s subjects were not amused. They grumbled and complained, but
-  the king was firm:
- </p>
- <ul class="my-6 ml-6 list-disc [&>li]:mt-2">
-
- </ul>
- <p class="leading-7 [&:not(:first-child)]:mt-6">
-  As a result, people stopped telling jokes, and the kingdom fell into a
-  gloom. But there was one person who refused to let the king&apos;s
-  foolishness get him down: a court jester named Jokester.
- </p>
+ {#each education as edu}
+  <ResumeCard
+    src={edu.src}
+      alt={edu.alt}
+      title={edu.title}
+      subtitle={edu.subtitle}
+      href={edu.href}
+      badges={edu.badges}
+      period={edu.period}
+      description={edu.description}
+    />
+{/each}
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Skills
  </h3>
- <p class="leading-7 [&:not(:first-child)]:mt-6">
-  Jokester began sneaking into the castle in the middle of the night and
-  leaving jokes all over the place: under the king&apos;s pillow, in his soup,
-  even in the royal toilet. The king was furious, but he couldn&apos;t seem to
-  stop Jokester.
- </p>
- <p class="leading-7 [&:not(:first-child)]:mt-6">
-  And then, one day, the people of the kingdom discovered that the jokes left
-  by Jokester were so funny that they couldn&apos;t help but laugh. And once
-  they started laughing, they couldn&apos;t stop.
- </p>
+ <div class="not-prose grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
+  {#each Object.entries(skills) as [category, items]}
+   <div>
+    <h4 class="text-md font-semibold capitalize">{category}</h4>
+    <ul class="mt-2 flex flex-wrap gap-2">
+     {#each items as item}
+      <li>
+       <span class="inline-flex items-center rounded-md border border-neutral-200 bg-neutral-50 px-2.5 py-0.5 text-xs font-semibold text-neutral-800 transition-colors hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700">
+        {item}
+       </span>
+      </li>
+     {/each}
+    </ul>
+   </div>
+  {/each}
+ </div>
+
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   My Projects
  </h3>
- <p class="leading-7 [&:not(:first-child)]:mt-6">
-  The people of the kingdom, feeling uplifted by the laughter, started to tell
-  jokes and puns again, and soon the entire kingdom was in on the joke.
- </p>
 </div>
