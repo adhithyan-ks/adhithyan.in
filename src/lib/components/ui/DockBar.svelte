@@ -1,10 +1,7 @@
 <script lang="ts">
-  import { House, PencilLine, TvMinimalPlay, Github, Linkedin } from "lucide-svelte";
-  import GithubSvg from "$lib/svg/web/github.svg";
-  import LinkedInSvg from "$lib/svg/web/linkedin.svg";
+  import { House, PencilLine, Github, Linkedin, Mail } from "lucide-svelte";
   import Dock from "./Dock.svelte";
   import DockIcon from "./DockIcon.svelte";
-  // import * as Tooltip from "$lib/components/ui/tooltip";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
   import { Separator } from "$lib/components/ui/separator/index.js";
   import Toggle from "$lib/components/Toggle.svelte";
@@ -12,28 +9,28 @@
     navbar: [
       { label: "Home", icon: House, href: "#" },
       { label: "Blog", icon: PencilLine, href: "#" },
-      { label: "Developer", icon: TvMinimalPlay, href: "#" }
-      //   { label: "X", icon: TwitterSvg, href: "#" },
-      //   { label: "Email", icon: MailSvg, href: "#" },
     ],
     contact: [
       { label: "Github", icon: Github, href: "#" },
-      { label: "LinkedIn", icon: Linkedin, href: "#" }
+      { label: "LinkedIn", icon: Linkedin, href: "#" },
+      { label: "Email", icon: Mail, href: "#" }
     ],
   };
 </script>
-<Dock 
+<div class="">
+  <Dock 
   direction="middle"
   let:mouseX 
   let:distance 
   let:magnification
+  class="fixed bottom-5 left-1/2 -translate-x-1/2 z-500 bg-background/80"
 >
   {#each navs.navbar as item}
     <DockIcon {mouseX} {magnification} {distance}>
       <Tooltip.Provider>
         <Tooltip.Root>
           <Tooltip.Trigger
-            class="hover:bg-secondary transition-all duration-200 rounded-full p-3 mx-0"
+            class="hover:bg-secondary cursor-pointer transition-all duration-200 rounded-full p-3 mx-0"
           >
             <svelte:component this={item.icon} size={22} strokeWidth={1.2} />
           </Tooltip.Trigger>
@@ -50,7 +47,7 @@
         <Tooltip.Provider>
           <Tooltip.Root>
             <Tooltip.Trigger
-              class="hover:bg-secondary transition-all duration-200 rounded-full"
+              class="hover:bg-secondary cursor-pointer transition-all duration-200 rounded-full p-3 mx-0"
             >
             <svelte:component this={item.icon} size={22} strokeWidth={1.2} />
             </Tooltip.Trigger>
@@ -66,7 +63,7 @@
       <Tooltip.Provider>
         <Tooltip.Root>
           <Tooltip.Trigger
-            class="hover:secondary transition-all duration-200 rounded-full p-3 mx-0"
+            class="hover:bg-secondary cursor-pointer transition-all duration-200 rounded-full p-3 mx-0"
           >
             <Toggle />
           </Tooltip.Trigger>
@@ -76,4 +73,5 @@
         </Tooltip.Root>
       </Tooltip.Provider>
     </DockIcon>
-</Dock>
+  </Dock>
+</div>

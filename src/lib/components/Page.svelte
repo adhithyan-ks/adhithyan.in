@@ -5,7 +5,7 @@
 
 <div>
     <!-- <DockExample /> -->
- <h1 class="scroll-m-20 text-balance text-4xl font-extrabold tracking-tight">
+ <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
   Hi, I'm Adhithyan 👋
  </h1>
  <p class="text-muted-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
