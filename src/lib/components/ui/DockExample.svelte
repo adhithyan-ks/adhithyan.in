@@ -1,10 +1,10 @@
 <script>
   // Lucide Svelte
   import {
-    Home,
+    House,
     PencilLine,
     TvMinimalPlay,
-  } from "lucide-svelte";
+  } from "@lucide/svelte";
   // Simple Icons : simpleicons.org
 //   import TwitterSvg from "$lib/svg/web/x.svg";
   import GithubSvg from "$lib/svg/web/github.svg";
@@ -19,7 +19,7 @@
 
   let navs = {
     navbar: [
-      { label: "Home", icon: Home, href: "#" },
+      { label: "Home", icon: House, href: "#" },
       { label: "Blog", icon: PencilLine, href: "#" },
       { label: "Developer", icon: TvMinimalPlay, href: "#" },
     ],

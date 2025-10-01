@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { House, PencilLine, Github, Linkedin, Mail } from "lucide-svelte";
+  import { House, PencilLine, Github, Linkedin, Mail } from "@lucide/svelte";
   import Dock from "./Dock.svelte";
   import DockIcon from "./DockIcon.svelte";
   import * as Tooltip from "$lib/components/ui/tooltip/index.js";
@@ -7,13 +7,13 @@
   import Toggle from "$lib/components/Toggle.svelte";
   let navs = {
     navbar: [
-      { label: "Home", icon: House, href: "#" },
-      { label: "Blog", icon: PencilLine, href: "#" },
+      { label: "Home", icon: House, href: "/" },
+      // { label: "Blog", icon: PencilLine, href: "#" },
     ],
     contact: [
-      { label: "Github", icon: Github, href: "#" },
-      { label: "LinkedIn", icon: Linkedin, href: "#" },
-      { label: "Email", icon: Mail, href: "#" }
+      { label: "Github", icon: Github, href: "https://github.com/adhithyan-ks" },
+      { label: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/adhithyanks" },
+      { label: "Email", icon: Mail, href: "mailto:adhithyanktd@gmail.com" }
     ],
   };
 </script>
@@ -32,7 +32,9 @@
           <Tooltip.Trigger
             class="hover:bg-secondary cursor-pointer transition-all duration-200 rounded-full p-3 mx-0"
           >
-            <svelte:component this={item.icon} size={22} strokeWidth={1.2} />
+          <a href="{item.href}">
+              <svelte:component this={item.icon} size={22} strokeWidth={1.2} />
+            </a>
           </Tooltip.Trigger>
           <Tooltip.Content sideOffset={8}>
             <p>{item.label}</p>
@@ -49,7 +51,9 @@
             <Tooltip.Trigger
               class="hover:bg-secondary cursor-pointer transition-all duration-200 rounded-full p-3 mx-0"
             >
-            <svelte:component this={item.icon} size={22} strokeWidth={1.2} />
+            <a href="{item.href}" target="_blank">
+              <svelte:component this={item.icon} size={22} strokeWidth={1.2} />
+            </a>
             </Tooltip.Trigger>
             <Tooltip.Content sideOffset={9}>
               <p>{item.label}</p>
