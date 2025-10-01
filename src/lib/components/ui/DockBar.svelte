@@ -28,7 +28,8 @@
       </Tooltip.Root> -->
       <Tooltip.Provider>
       <Tooltip.Root>
-        <Tooltip.Trigger class="hover:bg-zinc-900/80 transition-all duration-200 rounded-full p-3">
+        <!-- hover:bg-secondary -->
+        <Tooltip.Trigger class="hover:bg-secondary transition-all duration-200 rounded-full p-3">
            <svelte:component this={item.icon} size={20} strokeWidth={1.2} />
         </Tooltip.Trigger>
         <Tooltip.Content>
