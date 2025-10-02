@@ -1,6 +1,6 @@
 <script lang="ts">
   import ResumeCard from '$lib/components/ResumeCard.svelte';
-
+  
   const education = [
     {
       src: 'https://www.joonsquare.com/usermanage/image/business/government-polytechnic-thrissur-14850/government-polytechnic-thrissur-logo.png',
@@ -14,11 +14,10 @@
     },
   ];
   const skills = {
-    languages: ['JavaScript', 'TypeScript', 'Python', 'C', 'C++', 'HTML', 'CSS', 'SQL'],
-    frameworks: ['SvelteKit', 'Node.js', 'Express.js', 'Flask'],
-    tools: ['Git', 'Docker', 'VS Code', 'Figma'],
+    languages: ['JavaScript', 'Java', 'Python', 'C', 'HTML', 'CSS', 'SQL', 'PHP'],
+    frameworks: ['SvelteKit', 'Express.js', 'tailwindcss'],
     databases: ['MySQL', 'MongoDB'],
-    others: ['REST APIs', 'GraphQL', 'CI/CD']
+    tools: ['Git', 'VS Code'],
   };
 </script>
 <div>
@@ -52,7 +51,7 @@
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Skills
  </h3>
- <div class="not-prose grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-2 md:grid-cols-3">
+ <div class="">
   {#each Object.entries(skills) as [category, items]}
    <div>
     <h4 class="text-md font-semibold capitalize">{category}</h4>
