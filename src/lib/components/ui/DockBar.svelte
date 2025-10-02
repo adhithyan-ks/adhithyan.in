@@ -23,7 +23,7 @@
   let:mouseX 
   let:distance 
   let:magnification
-  class="fixed bottom-5 left-1/2 -translate-x-1/2 z-500 bg-background/80"
+  class="fixed bottom-5 left-1/2 -translate-x-1/2 z-500 bg-background/80 rounded-4xl"
 >
   {#each navs.navbar as item}
     <DockIcon {mouseX} {magnification} {distance}>
