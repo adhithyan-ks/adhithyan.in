@@ -1,6 +1,6 @@
 <script lang="ts">
   import ResumeCard from '$lib/components/ResumeCard.svelte';
-  
+  import SkillsCard from '$lib/components/SkillsCard.svelte';
   const education = [
     {
       src: 'https://www.joonsquare.com/usermanage/image/business/government-polytechnic-thrissur-14850/government-polytechnic-thrissur-logo.png',
@@ -13,12 +13,6 @@
       description: 'Diploma in Computer Engineering'
     },
   ];
-  const skills = {
-    languages: ['JavaScript', 'Java', 'Python', 'C', 'HTML', 'CSS', 'SQL', 'PHP'],
-    frameworks: ['SvelteKit', 'Express.js', 'tailwindcss'],
-    databases: ['MySQL', 'MongoDB'],
-    tools: ['Git', 'VS Code'],
-  };
 </script>
 <div>
  <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
@@ -51,23 +45,7 @@
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Skills
  </h3>
- <div class="">
-  {#each Object.entries(skills) as [category, items]}
-   <div>
-    <h4 class="text-md font-semibold capitalize">{category}</h4>
-    <ul class="mt-2 flex flex-wrap gap-2">
-     {#each items as item}
-      <li>
-       <span class="inline-flex items-center rounded-md border border-neutral-200 bg-neutral-50 px-2.5 py-0.5 text-xs font-semibold text-neutral-800 transition-colors hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:hover:bg-neutral-700">
-        {item}
-       </span>
-      </li>
-     {/each}
-    </ul>
-   </div>
-  {/each}
- </div>
-
+ <SkillsCard />
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   My Projects
  </h3>
