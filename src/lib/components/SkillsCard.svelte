@@ -1,21 +1,12 @@
-<script>
-    import { Badge } from '$lib/components/ui/badge/index.js';
-    // import { c, javascript, java, php, python, svelte} from '$lib/svg/index.js';
-    import C from '$lib/svg/c.svg';
-    import Java from '$lib/svg/java.svg';
-    import JavaScript from '$lib/svg/javascript.svg';
-    import PHP from '$lib/svg/php.svg';
-    import Python from '$lib/svg/python.svg';
-    import SvelteLogo from '$lib/components/SvelteLogo.svelte';
-    import Logos from '$lib/components/svg/logos.svelte';
-
+<script lang="ts">
+  import Logos from "$lib/components/svg/logos.svelte";
     const skills = [
-      { label: 'JavaScript', icon: JavaScript },
-      { label: 'Java', icon: Java },
-      { label: 'Python', icon: Python },
-      { label: 'C', icon: C },
-      { label: 'PHP', icon: PHP },
-      { label: 'Svelte', icon: SvelteLogo },
+      { label: 'JavaScript'},
+      { label: 'Java'},
+      { label: 'Python'},
+      { label: 'C'},
+      { label: 'PHP'},
+      { label: 'Svelte'},
     ];
   </script>
 <div>
@@ -50,11 +41,13 @@
 </div> -->
 <div class="">
   <div class="mx-auto max-w-7xl px-6 lg:px-8">
-    <div class="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+    <div class="mx-auto mt-10 grid max-w-lg grid-cols-3 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
       {#each skills as skill}
-          <Logos name={skill.label.toLowerCase()} />
-          {skill.label}
-        {/each}
+      <div>
+        <Logos name={skill.label.toLowerCase()} />
+        <!-- <p>{skill.label}</p> -->
+      </div>
+      {/each}
       </div>
     </div>
   </div>
