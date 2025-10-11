@@ -2,7 +2,7 @@
 	import type { WithElementRef } from 'bits-ui';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	import { timelineContext } from './timeline-context.svelte';
+	import { setTimelineContext } from './timeline-context.svelte';
 
 	import { cn } from '$lib/utils';
 
@@ -35,8 +35,8 @@
 
 	const currentStep = $derived(value ?? activeStep);
 
-	timelineContext.set({
-		activeStep: currentStep,
+	setTimelineContext({
+		activeStep: () => currentStep,
 		setActiveStep
 	});
 </script>

@@ -15,7 +15,7 @@
 <h3
 	bind:this={ref}
 	data-slot="timeline-title"
-	class={cn('text-sm font-medium', className)}
+	class={cn('scroll-m-20 text-lg font-semibold tracking-tight', className)}
 	{...restProps}
 >
 	{@render children?.()}

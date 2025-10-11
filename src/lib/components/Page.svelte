@@ -28,11 +28,11 @@
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   I am a computer engineering student from Kerala, India, passionate about coding and exploring software and web development. I began coding in 2019, mostly in Scratch. Work mostly around web. I have built some websites using Sveltekit.
  </p>
- <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
-  Education
+ <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight pb-6">
+  Expeirence
  </h3>
  <TimeLine />
- {#each education as edu}
+ <!-- {#each education as edu}
   <ResumeCard
     src={edu.src}
       alt={edu.alt}
@@ -43,7 +43,7 @@
       period={edu.period}
       description={edu.description}
     />
-{/each}
+{/each} -->
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Skills
  </h3>

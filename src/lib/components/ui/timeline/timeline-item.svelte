@@ -22,7 +22,7 @@
 		className
 	)}
 	data-slot="timeline-item"
-	data-completed={step <= activeStep || undefined}
+	data-completed={step <= activeStep() || undefined}
 	{...restProps}
 >
 	{@render children?.()}
