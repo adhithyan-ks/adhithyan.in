@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { House, PencilLine, Github, Linkedin, Mail } from '@lucide/svelte';
+	import { House, Github, Linkedin, Mail } from '@lucide/svelte';
+	import Toggle from '$lib/components/Toggle.svelte';
 	import Dock from './Dock.svelte';
 	import DockIcon from './DockIcon.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
-	import Toggle from '$lib/components/Toggle.svelte';
 	let navs = {
 		navbar: [
 			{ label: 'Home', icon: House, href: '/' }
