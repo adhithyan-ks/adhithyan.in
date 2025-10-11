@@ -18,11 +18,14 @@
     ];
   </script>
 <div>
-  {#each skills as skill}
-       <Badge class="mr-2 h-10 rounded-3xl" variant="outline">
-          <!-- <img src={skill.icon} alt={skill.label} class="m-3 h-5 w-5" /> -->
-          <SvelteLogo size="h-10 w-10" />
-          {skill.label}
-        </Badge>
-  {/each}
+  <!-- svelte-ignore a11y_distracting_elements -->
+  <marquee behavior="scroll" direction="left" >
+    {#each skills as skill}
+         <Badge class="mr-2 h-10 rounded-3xl" variant="outline">
+            <SvelteLogo size="h-10 w-10" />
+            {skill.label}
+          </Badge>
+    {/each}
+
+  </marquee>
  </div>

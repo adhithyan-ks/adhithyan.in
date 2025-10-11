@@ -1,6 +1,7 @@
 <script lang="ts">
   import ResumeCard from '$lib/components/ResumeCard.svelte';
   import SkillsCard from '$lib/components/SkillsCard.svelte';
+	import TimeLine from './TimeLine.svelte';
   const education = [
     {
       src: 'https://www.joonsquare.com/usermanage/image/business/government-polytechnic-thrissur-14850/government-polytechnic-thrissur-logo.png',
@@ -30,6 +31,7 @@
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Education
  </h3>
+ <TimeLine />
  {#each education as edu}
   <ResumeCard
     src={edu.src}
