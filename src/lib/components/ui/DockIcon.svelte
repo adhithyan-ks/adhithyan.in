@@ -1,48 +1,55 @@
 <script lang="ts">
-  import { cn } from "$lib/utils";
-  import {
-    Motion,
-    useMotionValue,
-    useSpring,
-    useTransform,
-  } from "svelte-motion";
+	import { cn } from '$lib/utils';
+	import { Motion, useMotionValue, useSpring, useTransform } from 'svelte-motion';
+	import type { Snippet } from 'svelte';
 
-  export let magnification = 60;
-  export let distance = 160;
-  export let mouseX = 0;
-  let mint = useMotionValue(mouseX);
-  $: mint.set(mouseX);
+	type DockIconProps = {
+		magnification?: number;
+		distance?: number;
+		mouseX?: number;
+		class?: string;
+		children: Snippet;
+	};
 
-  let className: string | undefined  = "";
-  export { className as class };
+	let {
+		magnification = 60,
+		distance = 160,
+		mouseX = 0,
+		class: className,
+		children
+	}: DockIconProps = $props();
 
-  let iconElement: HTMLDivElement;
+	let iconElement: HTMLDivElement | undefined = $state();
+	const mint = useMotionValue(mouseX);
 
-  let distanceCalc = useTransform(mint, (val: number) => {
-    const bounds = iconElement?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
-  });
+	$effect(() => {
+		mint.set(mouseX);
+	});
 
-  let widthSync = useTransform(
-    distanceCalc,
-    [-distance, 0, distance],
-    [38, magnification, 38]
-  );
+	const distanceCalc = useTransform(mint, (val: number) => {
+		const bounds = iconElement?.getBoundingClientRect() ?? { x: 0, width: 0 };
+		return val - bounds.x - bounds.width / 2;
+	});
 
-  let width = useSpring(widthSync, {
-    mass: 0.1,
-    stiffness: 150,
-    damping: 12,
-  });
+	const widthSync = useTransform(
+		distanceCalc,
+		[-distance, 0, distance],
+		[38, magnification, 38]
+	);
 
-  let iconClass = cn(
-    "flex aspect-square cursor-pointer items-center justify-center rounded-full",
-    className
-  );
+	const width = useSpring(widthSync, {
+		mass: 0.1,
+		stiffness: 150,
+		damping: 12
+	});
+
+	const iconClass = $derived(
+		cn('flex aspect-square cursor-pointer items-center justify-center rounded-full', className)
+	);
 </script>
 
-<Motion style={{ width: width }} let:motion>
-  <div use:motion bind:this={iconElement} class={iconClass}>
-    <slot></slot>
-  </div>
+<Motion style={{ width }} let:motion>
+	<div use:motion bind:this={iconElement} class={iconClass}>
+		{@render children()}
+	</div>
 </Motion>
