@@ -29,21 +29,9 @@
   I am a computer engineering student from Kerala, India, passionate about coding and exploring software and web development. I began coding in 2019, mostly in Scratch. Work mostly around web. I have built some websites using Sveltekit.
  </p>
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight pb-6">
-  Expeirence
+  Experience
  </h3>
  <TimeLine />
- <!-- {#each education as edu}
-  <ResumeCard
-    src={edu.src}
-      alt={edu.alt}
-      title={edu.title}
-      subtitle={edu.subtitle}
-      href={edu.href}
-      badges={edu.badges}
-      period={edu.period}
-      description={edu.description}
-    />
-{/each} -->
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   Skills
  </h3>
