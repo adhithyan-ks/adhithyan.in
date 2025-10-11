@@ -67,7 +67,7 @@
       <Tooltip.Provider>
         <Tooltip.Root>
           <Tooltip.Trigger
-            class="hover:bg-secondary cursor-pointer transition-all duration-200 rounded-full p-3 mx-0"
+            
           >
             <Toggle />
           </Tooltip.Trigger>
