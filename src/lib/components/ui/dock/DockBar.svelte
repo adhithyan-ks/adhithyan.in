@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { House, Github, Linkedin, Mail } from '@lucide/svelte';
 	import Toggle from '$lib/components/Toggle.svelte';
-	import Dock from './Dock.svelte';
-	import DockIcon from './DockIcon.svelte';
+	import Dock from '$lib/components/ui/dock/Dock.svelte';
+	import DockIcon from '$lib/components/ui/dock/DockIcon.svelte';
 	import * as Tooltip from '$lib/components/ui/tooltip/index.js';
 	import { Separator } from '$lib/components/ui/separator/index.js';
 	let navs = {
