@@ -21,7 +21,7 @@
 <div class="">
 	<Dock
 		direction="middle"
-		class="fixed bottom-5 left-1/2 -translate-x-1/2 z-500 bg-background/80 rounded-4xl"
+		class="fixed bottom-10 left-1/2 -translate-x-1/2 z-500 bg-background/80 rounded-4xl"
 	>
 		{#snippet children({ mouseX, distance, magnification })}
 			{#each navs.navbar as item (item.href)}
