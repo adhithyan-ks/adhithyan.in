@@ -56,23 +56,3 @@
     {/each}
   </div>
 </div>
-
-
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Instrument+Serif:ital@0;1&family=Oldenburg&family=Outfit:wght@100..900&display=swap');
-.instrument-serif-regular {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.instrument-serif-regular-italic {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-* {
-  font-family: "Outfit", sans-serif;
-}
-
-</style>
