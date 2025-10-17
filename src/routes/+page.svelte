@@ -1,19 +1,6 @@
 <script lang="ts">
-  import ResumeCard from '$lib/components/ResumeCard.svelte';
   import SkillsCard from '$lib/components/SkillsCard.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
-  const education = [
-    {
-      src: 'https://www.joonsquare.com/usermanage/image/business/government-polytechnic-thrissur-14850/government-polytechnic-thrissur-logo.png',
-      alt: 'GPTC-KKM',
-      title: 'Government Polytechnic College, Kunnamkulam',
-      subtitle: 'Computer Engineering',
-      href: 'http://www.gptckunnamkulam.ac.in/',
-      badges: [],
-      period: '2023 - 2026 (Expected)',
-      description: 'Diploma in Computer Engineering'
-    },
-  ];
 </script>
 <div class="container mx-auto px-4 py-8 w-2xl">
  <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
