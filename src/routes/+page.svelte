@@ -46,7 +46,7 @@
  </h3>
  
  <SkillsCard />
- <h3 class="mt-8 scroll-m-20 text-4xl font-semibold tracking-tight pb-6 text-center">
+ <h3 class="mt-8 scroll-m-20 text-4xl font-semibold tracking-tight pb-6 text-center instrument-serif-regular-italic">
   Projects
  </h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-30"> 
