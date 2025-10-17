@@ -21,11 +21,11 @@
     }
   ];
 </script>
-<div class="container mx-auto px-4 py-8 w-2xl mt-25">
+<div class="container mx-auto px-4 py-8 md:w-2xl mt-10">
  <!-- <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
   Hi,
  </h1> -->
- <h1 class="scroll-m-20 text-balance text-7xl font-extrabold tracking-tight mb-4">
+ <h1 class="scroll-m-20 text-balance text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
    <span class="instrument-serif-regular">I'm Adhithyan</span>
  </h1>
  <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
