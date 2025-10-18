@@ -19,6 +19,45 @@
 	const skills2 = skills.slice(half);
 </script>
 
+<div class="relative flex flex-col gap-y-4 overflow-hidden py-10">
+	<div class="marquee-container flex items-center gap-x-4">
+		<div class="marquee flex items-center gap-x-8">
+			{#each skills1 as skill}
+				<div class="flex-shrink-0 flex items-center gap-x-2">
+					<Logos name={skill.label.toLowerCase()} />
+					<p>{skill.label}</p>
+				</div>
+			{/each}
+		</div>
+		<div class="marquee flex items-center gap-x-8" aria-hidden="true">
+			{#each skills1 as skill}
+				<div class="flex-shrink-0 flex items-center gap-x-2">
+					<Logos name={skill.label.toLowerCase()} />
+					<p>{skill.label}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+	<div class="marquee-container flex items-center gap-x-4">
+		<div class="marquee-slow flex items-center gap-x-8">
+			{#each skills2 as skill}
+				<div class="flex-shrink-0 flex items-center gap-x-2">
+					<Logos name={skill.label.toLowerCase()} />
+					<p>{skill.label}</p>
+				</div>
+			{/each}
+		</div>
+		<div class="marquee-slow flex items-center gap-x-8" aria-hidden="true">
+			{#each skills2 as skill}
+				<div class="flex-shrink-0 flex items-center gap-x-2">
+					<Logos name={skill.label.toLowerCase()} />
+					<p>{skill.label}</p>
+				</div>
+			{/each}
+		</div>
+	</div>
+</div>
+
 <style>
 	@keyframes marquee {
 		from {
@@ -29,49 +68,16 @@
 		}
 	}
 
-	.animate-marquee {
-		animation: marquee 30s linear infinite;
+	.marquee {
+		animation: marquee 20s linear infinite;
 	}
-	.animate-marquee-reverse {
-		animation: marquee 30s linear infinite reverse;
+
+	.marquee-slow {
+		animation: marquee 25s linear infinite;
+	}
+
+	.marquee-container:hover .marquee,
+	.marquee-container:hover .marquee-slow {
+		animation-play-state: paused;
 	}
 </style>
-
-<div class="relative flex flex-col gap-y-4 overflow-hidden py-10">
-	<div class="flex items-center gap-x-4">
-		<div class="flex animate-marquee items-center gap-x-8">
-			{#each skills1 as skill}
-				<div class="flex-shrink-0 flex items-center gap-x-2">
-					<Logos name={skill.label.toLowerCase()} />
-					<p>{skill.label}</p>
-				</div>
-			{/each}
-		</div>
-		<div class="flex animate-marquee items-center gap-x-8" aria-hidden="true">
-			{#each skills1 as skill}
-				<div class="flex-shrink-0 flex items-center gap-x-2">
-					<Logos name={skill.label.toLowerCase()} />
-					<p>{skill.label}</p>
-				</div>
-			{/each}
-		</div>
-	</div>
-	<div class="flex items-center gap-x-4">
-		<div class="flex animate-marquee-reverse items-center gap-x-8">
-			{#each skills2 as skill}
-				<div class="flex-shrink-0 flex items-center gap-x-2">
-					<Logos name={skill.label.toLowerCase()} />
-					<p>{skill.label}</p>
-				</div>
-			{/each}
-		</div>
-		<div class="flex animate-marquee-reverse items-center gap-x-8" aria-hidden="true">
-			{#each skills2 as skill}
-				<div class="flex-shrink-0 flex items-center gap-x-2">
-					<Logos name={skill.label.toLowerCase()} />
-					<p>{skill.label}</p>
-				</div>
-			{/each}
-		</div>
-	</div>
-</div>
