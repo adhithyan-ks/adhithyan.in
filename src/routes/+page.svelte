@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { FileDown, MapPin } from '@lucide/svelte';
   import SkillsCard from '$lib/components/SkillsCard.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
   import ProjectsCard from '$lib/components/ProjectsCard.svelte';
+	import { Button } from '$lib/components/ui/button';
   const projects = [
     {
       title: 'Hotel Room Booking',
@@ -25,11 +27,11 @@
  <!-- <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
   Hi,
  </h1> -->
- <h1 class="scroll-m-20 text-balance text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+ <h1 class="scroll-m-20 text-balance text-5xl md:text-7xl font-medium tracking-tight mb-4">
    <span class="instrument-serif-regular">I'm Adhithyan</span>
  </h1>
- <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
-  Someone who is very interested in tech and web.
+ <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6 flex items-center gap-2">
+        <MapPin /> Kerala, India
  </p>
 <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   About
@@ -37,6 +39,14 @@
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   I am a computer engineering student from Kerala, India, passionate about coding and exploring software and web development. I began coding in 2019, mostly in Scratch. Work mostly around web. I have built some websites using Sveltekit.
  </p>
+ <Button class="mt-3 h-10 px-4 rounded-md text-foreground " variant="outline">
+  <a href="/resume.pdf" download="Adhithyan K S - Resume.pdf">
+    <div class="flex items-center gap-2">
+      <FileDown />
+      Resume
+    </div>
+  </a>
+</Button>
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight pb-6">
   Experience
  </h3>
@@ -46,7 +56,7 @@
  </h3>
  
  <SkillsCard />
- <h3 class="mt-8 scroll-m-20 text-4xl font-semibold tracking-tight pb-6 text-center instrument-serif-regular-italic">
+ <h3 class="mt-8 scroll-m-20 text-5xl font-semibold tracking-tight pb-6 text-center instrument-serif-regular-italic">
   Projects
  </h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-30"> 
