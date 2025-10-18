@@ -7,6 +7,11 @@
       { label: 'C'},
       { label: 'PHP'},
       { label: 'Svelte'},
+      { label: 'SQL'},
+      { label: 'Express'},
+      { label: 'MongoDB'},
+      { label: 'Git'},
+      { label: 'React'}
     ];
   </script>
 <div class="">

@@ -25,11 +25,11 @@
  <!-- <h1 class="scroll-m-20 text-balance text-5xl font-extrabold tracking-tight mt-20">
   Hi,
  </h1> -->
- <h1 class="scroll-m-20 text-balance text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+ <h1 class="scroll-m-20 text-balance text-5xl md:text-7xl font-medium tracking-tight mb-4">
    <span class="instrument-serif-regular">I'm Adhithyan</span>
  </h1>
  <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
-  Someone who is very interested in tech and web.
+  A Computer Engineering student from Kerala, India. I love building web applications and exploring new technologies.
  </p>
 <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   About
@@ -46,7 +46,7 @@
  </h3>
  
  <SkillsCard />
- <h3 class="mt-8 scroll-m-20 text-4xl font-semibold tracking-tight pb-6 text-center instrument-serif-regular-italic">
+ <h3 class="mt-8 scroll-m-20 text-5xl font-semibold tracking-tight pb-6 text-center instrument-serif-regular-italic">
   Projects
  </h3>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-30"> 
