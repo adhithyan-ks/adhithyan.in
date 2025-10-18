@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FileDown } from '@lucide/svelte';
+  import { FileDown, MapPin } from '@lucide/svelte';
   import SkillsCard from '$lib/components/SkillsCard.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
   import ProjectsCard from '$lib/components/ProjectsCard.svelte';
@@ -30,8 +30,8 @@
  <h1 class="scroll-m-20 text-balance text-5xl md:text-7xl font-medium tracking-tight mb-4">
    <span class="instrument-serif-regular">I'm Adhithyan</span>
  </h1>
- <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6">
-  A Computer Engineering student from Kerala, India. I love building web applications and exploring new technologies.
+ <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6 flex items-center gap-2">
+        <MapPin /> Kerala, India
  </p>
 <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight">
   About
