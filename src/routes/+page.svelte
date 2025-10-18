@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { FileDown } from '@lucide/svelte';
   import SkillsCard from '$lib/components/SkillsCard.svelte';
 	import TimeLine from '$lib/components/TimeLine.svelte';
   import ProjectsCard from '$lib/components/ProjectsCard.svelte';
+	import { Button } from '$lib/components/ui/button';
   const projects = [
     {
       title: 'Hotel Room Booking',
@@ -37,6 +39,14 @@
  <p class="leading-7 [&:not(:first-child)]:mt-6">
   I am a computer engineering student from Kerala, India, passionate about coding and exploring software and web development. I began coding in 2019, mostly in Scratch. Work mostly around web. I have built some websites using Sveltekit.
  </p>
+ <Button class="mt-3 h-10 px-4 rounded-md text-foreground " variant="outline">
+  <a href="/resume.pdf" download="Adhithyan K S - Resume.pdf">
+    <div class="flex items-center gap-2">
+      <FileDown />
+      Resume
+    </div>
+  </a>
+</Button>
  <h3 class="mt-8 scroll-m-20 text-2xl font-semibold tracking-tight pb-6">
   Experience
  </h3>
