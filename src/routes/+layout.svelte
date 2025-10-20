@@ -8,10 +8,6 @@
 	let { children } = $props();
   injectAnalytics({ mode: dev ? 'development' : 'production' });
 </script>
-<ModeWatcher />
-<DockBar />
-
-{@render children?.()}
 <svelte:head>
 	<link rel="icon" href={favicon} />
   <!-- Primary Meta Tags -->
@@ -40,6 +36,12 @@
   <meta property="twitter:image" content="https://adhithyan.in/og-image.png">
 
 </svelte:head>
+
+<ModeWatcher />
+<DockBar />
+
+{@render children?.()}
+
 
 <footer>
 	<p class="text-center m-4">&copy; {new Date().getFullYear()} Adhithyan. All rights reserved.</p>
