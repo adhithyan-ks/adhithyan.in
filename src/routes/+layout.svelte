@@ -1,9 +1,12 @@
 <script lang="ts">
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.png';
+  import { dev } from '$app/environment';
+  import { injectAnalytics } from '@vercel/analytics/sveltekit';
 	import DockBar from '$lib/components/ui/dock/DockBar.svelte';
 	import { ModeWatcher } from "mode-watcher";
 	let { children } = $props();
+  injectAnalytics({ mode: dev ? 'development' : 'production' });
 </script>
 <ModeWatcher />
 <DockBar />
