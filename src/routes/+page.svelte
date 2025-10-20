@@ -28,7 +28,7 @@
   Hi,
  </h1> -->
  <h1 class="scroll-m-20 text-balance text-5xl md:text-7xl font-medium tracking-tight mb-4">
-   <span class="instrument-serif-regular">I'm Adhithyan</span>
+   I'm Adhithyan
  </h1>
  <p class="text-foreground text-xl leading-7 [&:not(:first-child)]:mt-6 flex items-center gap-2">
         <MapPin /> Kerala, India
@@ -56,9 +56,9 @@
  </h3>
  
  <SkillsCard />
- <h3 class="mt-8 scroll-m-20 text-5xl font-semibold tracking-tight pb-6 text-center instrument-serif-regular-italic">
+ <h2 class="mt-8 scroll-m-20 text-5xl font-medium tracking-tight pb-6 text-center italic">
   Projects
- </h3>
+ </h2>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-30"> 
     <!-- marging 30 -->
     {#each projects as project}
