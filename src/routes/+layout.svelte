@@ -41,24 +41,6 @@
 
 </svelte:head>
 
-
 <footer>
 	<p class="text-center m-4">&copy; {new Date().getFullYear()} Adhithyan. All rights reserved.</p>
 </footer>
-
-<style>
-/* :global(.instrument-serif-regular) {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: normal;
-}
-:global(.instrument-serif-regular-italic) {
-  font-family: "Instrument Serif", serif;
-  font-weight: 400;
-  font-style: italic;
-}
-:global(*) {
-  font-family: "Outfit", sans-serif;
-} */
-
-</style>
