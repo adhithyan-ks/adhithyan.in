@@ -3,6 +3,17 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
+
+/* Outfit for body text */
+body {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Instrument Serif for headings */
+h1, h2 {
+  font-family: 'Instrument Serif', serif;
+}
+
 :root {
   --background: #fcfcfc;
   --foreground: #000000;

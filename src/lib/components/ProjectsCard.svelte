@@ -14,7 +14,7 @@
 
 <Card.Root>
 	<Card.Header>
-		<img src={image} alt={title} class="w-full object-cover rounded-t-md" />
+		<img src={image} alt={title} class="w-full object-cover rounded-t-md" loading="lazy" />
 		<Card.Title class="mt-2">{title}</Card.Title>
 		<Card.Description>
             {date}
